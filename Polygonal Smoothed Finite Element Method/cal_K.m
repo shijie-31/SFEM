@@ -23,7 +23,7 @@ for iEl = 1 : nEl
         % Compute RPIM shape functions at the three mid‑points
         N = zeros(3, nENodes);                  % pre‑allocate shape‑function matrix
         for g = 1 : 3
-            N(g, :) = RPIM(elCoords, C(g, :));
+            N(g, :) = RPIM2(elCoords, C(g, :));
         end
         % Gradient matrix B (3 × nENodes)
         B = (lEdge(1) * nVec(1, :)' * N(1, :) + ...
@@ -36,3 +36,4 @@ for iEl = 1 : nEl
     K(dofIdx, dofIdx) = K(dofIdx, dofIdx) + Ke; % add elemental matrix to global
 end
 end
+
